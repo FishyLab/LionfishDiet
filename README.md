@@ -1,2 +1,18 @@
 # LionfishDiet
-RMP Lionfish Diet Project
+
+
+## Repository structure 
+
+```
+-- data
+-- docs
+-- LionfishDiet.Rproj
+-- raw_data
+-- README.md
+-- rmd
+-- scripts
+```
+
+--------- 
+
+Alex_Reulbach
