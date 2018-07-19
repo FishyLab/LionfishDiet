@@ -1,0 +1,59 @@
+---
+title: "LionfishDiet"
+author: "Alex Reulbach"
+date: "7/17/2018"
+abstract: "Lionfish (Pterois volitans and Pterois miles) are an invasive species in the Western Atlantic that are causing  harm to the region’s coral reefs. Previous studies have examined invasive lionfish feeding ecology in large regions and suggested further studies identifying regional variations and calling for more basic research regarding lionfish diet. With limited resources, it is important to account for the spatial scale at which variation in lionfish diet is reduced. In this study, 109 lionfish stomachs were collected from 10 sites in a localized region of the Mexican Caribbean and were analyzed to evaluate the differences in feeding ecology between sites. It was hypothesized that there would be no noticeable differences between the feeding ecology of the lionfish in the different sites across this region. Preliminary examination of the data collected shows that no major differences between the feeding ecology of the lionfish collected from the 10 different sites exist. This finding is important for future effective management of invasive lionfish populations across the Western Atlantic region. Since lionfish feeding ecology does not change across different sites in a localized region, studying lionfish at only one site in a certain region would be effective for understanding lionfish feeding ecology across the entire region, thus saving money which could be allocated for managing invasive lionfish populations."
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#Intro
+
+  The invasion of lionfish (Pterois volitans and Pterois miles) into the Western Atlantic represents a major threat to the coral reef ecosystems in the region. Introduced in the early 1990’s, the range of lionfish in this region quickly spread up the East Coast, the Gulf of Mexico, and throughout the Caribbean Sea (Betancur-R et al., 2011; Schofield, 2010). The unique hunting strategy and appearance of lionfish account for their success in establishing populations across the region (Grieve et al., 2016). The high predation efficiency of the lionfish, due to the naivety of native fish, has the potential to have large, negative ecological effects on coral reefs fish and invertebrate species.
+  Lionfish are opportunistic generalist carnivores that consume a wide range of invertebrate and vertebrate species. The majority of the prey species consumed by invasive lionfish are not at risk or managed by the fisheries (Peake et al., 2018). Since lionfish are opportunistic generalist carnivores, they consume whatever prey species is most abundant in a certain region. While the less abundant at risk species are not being targeted by lionfish, this opportunistic hunting behavior is still a cause for concern. In coral reefs with established lionfish populations, the lionfish have caused significant reductions in the recruitment of coral reef species (Albins and Hixon, 2008). For this reason, understanding the composition of lionfish diet is crucial in determining their effect on coral reef ecosystems.
+  Invasive lionfish feeding ecology and behavior has been examined before in numerous location-based studies. These studies highlighted the many differences in lionfish diet composition at different regions in the Western Atlantic (Morris and Atkins, 2009; Eddy et al., 2016; Dahl and Patterson, 2014). To discern if lionfish diet does vary based on location, a large study examining the contents of 8125 lionfish stomachs was conducted across 10 different locations in the Western Atlantic. The study revealed that lionfish diet does vary considerably based on location, and highlight the need for increased research to further understand possible impacts of lionfish (Peake et al., 2018). 
+  While lionfish diet varies considerably across large regions, it is unknown at what spatial scale the variation in lionfish diet is reduced. Here, we used stomach contents of 109 lionfish collected from 10 different sites in a localized region of the Mexican Caribbean to examine the variation in lionfish diet between sites and have a better understanding of lionfish feeding ecology in this region. Based on previous location-based studies that have examined lionfish feeding ecology in other localized regions, we hypothesized that there would be very little variation in lionfish diet and feeding ecology at the different sites. The data collected from this study will be very important in successfully managing invasive lionfish populations.
+
+#Methods
+
+  All the lionfish that we sampled in this study were collected from a small region in the Mexican Caribbean. In this small region, 109 lionfish were collected from 10 different sites (see FIG 1.). We collected these lionfish over a large number of dives using the roaming diver technique. The lionfish were captured with a handheld net, and subsequently stowed them in collection bottles until the completion of the dive. The depth, time, temperature, date, and location was recorded for future reference on a dive slate each time we collected a lionfish. This technique was favored over spearfishing because it allowed us to sample lionfish that were to small for the speargun, and this technique kept the bodies of the lionfish in excellent condition for subsequent analysis. At the end of the dive, we euthanized the lionfish by pithing. 
+
+  The sampled lionfish were stored in a freezer before being analyzed. Before the stomachs of the lionfish were excised, we recorded the weight and length of each sample. The lionfish were cut from the anus through the mandible with a scalpel to gain access to the stomach. We then recorded the weight and length of each stomach sampled. The stomach was then cut into and the contents removed. We then counted the number of prey in each stomach, identified the prey to the lowest taxon possible, and recorded the weight and length of each prey item. The prey items that could not be accurately identified were labeled as “unid”. 
+    
+  The data collected from this study was analyzed using a variety of methods, so that we could understand the differences and similarities in lionfish diet composition between the 10 sites in this region. The Modified Index of Relative Importance (MIRI) was used in this study instead of the Index of Relative Importance (IRI) because data collected on the scale concerning the weight of the prey was not accurate. The MIRI is important in this study because it accurately describes diet composition and the importance of each prey species to the lionfish diet. The MIRI was calculated using the equation: $$MIRI = Fₐ * Nₐ$$ the Fₐ being the prey item’s frequency of occurrence and the Nₐ being that prey item’s proportion of the total number of prey items. The MIRI was then normalized by multiplying the Fₐ and Nₐ by 100. We also recorded the number of species eaten by the lionfish to determine the species richness in the different sites and the region as a whole. Many of these sites are at different depth, so the relationship between lionfish diet and the depth at which the lionfish were collected was also analyzed. The amount of crustaceans and fish eaten at different locations and depths was analyzed to better understand their importance in lionfish diet composition and see if each type becomes either more or less abundant at differing depths and locations.
+
+
+#Results
+
+#Discussion
+
+#References
+
+#Acknowledgments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
