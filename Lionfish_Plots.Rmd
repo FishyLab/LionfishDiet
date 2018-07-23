@@ -1,0 +1,123 @@
+---
+title: "Lionfish_Plots"
+author: "Alex Reulbach"
+date: "7/17/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+type = c("Callinectes_sapidus", "Lysmata_sp", "Mysidium_spp", "Gonodactylus_smithii")
+
+lionfish <- read.csv("data/Updated_RMP_Lionfish.csv") %>% 
+  select(id, site, location, latitude, longitude, depth, total_length, stomach_length, stomach_weight, item_no, genus_species, item_total_length, item_weight) %>% 
+  mutate(type = ifelse(genus_species %in% type, "Crustacean", "Fish"),
+         genus_species = str_replace(genus_species, pattern = "_", replacement = " ")) %>% 
+  filter(!genus_species %in% c("unid", "empty"))
+```
+
+```{r}
+N <- lionfish %>% 
+  mutate(total_s = length(unique(genus_species)),
+         total_n = length(genus_species),
+         total_stomachs = length(unique(id))) %>% 
+  group_by(genus_species, total_s, total_n, total_stomachs) %>% 
+  summarize(n = n()) %>% 
+  ungroup() %>% 
+  mutate(N = n / total_n * 100) %>% 
+  select(genus_species, N)
+```
+
+```{r}
+lionfish %>% 
+  mutate(total_stomachs = length(unique(id))) %>% 
+  group_by(genus_species, id, total_stomachs) %>% 
+  summarize(n()) %>% 
+  group_by(genus_species, total_stomachs) %>% 
+  summarize(n = n()) %>% 
+  ungroup() %>% 
+  mutate(O = n / total_stomachs * 100) %>% 
+  select(genus_species, O) %>% 
+  left_join(N, by = "genus_species") %>% 
+  mutate(MIRI = O * N) %>% 
+  arrange(desc(MIRI)) %>% 
+  mutate(rMIRI = MIRI / sum(MIRI) * 100)
+```
+
+```{r}
+lionfish %>% 
+  mutate(total_stomachs = length(unique(id))) %>% 
+  group_by(genus_species, id, total_stomachs) %>% 
+  summarize(n()) %>% 
+  group_by(genus_species, total_stomachs) %>% 
+  summarize(n = n()) %>% 
+  ungroup() %>% 
+  mutate(O = n / total_stomachs * 100) %>% 
+  select(genus_species, O) %>% 
+  left_join(N, by = "genus_species") %>% 
+  mutate(MIRI = O * N) %>% 
+  arrange(desc(MIRI)) %>% 
+  mutate(rMIRI = MIRI / sum(MIRI) * 100) %>% 
+  ggplot(mapping = aes(x = O, y = N)) +
+  geom_point(mapping = aes(color = MIRI)) +
+  ggtitle("N vs. O with MIRI")
+```
+
+```{r}
+ggplot(data = lionfish, mapping = aes(x = type, y = depth)) +
+  geom_jitter(mapping = aes(), size = .75, shape = 19, height = 0, width = .15) +
+  facet_wrap(~location) +
+  labs(x = "Prey Type", y = "Depth (m)") +
+  ggtitle("Depth (m) vs. Prey Type with Location") +
+  scale_color_discrete(name = "Location")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

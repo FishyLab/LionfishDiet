@@ -1,0 +1,165 @@
+---
+title: "Lionfish_Maps"
+author: "Alex Reulbach"
+date: "7/17/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Loading Packages and Data
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+library(sf)
+```
+
+```{r}
+library(rnaturalearth)
+```
+
+```{r}
+library(cowplot)
+```
+
+```{r}
+library(ggsn)
+```
+
+```{r}
+library(rgeos)
+```
+
+```{r}
+coast <- sf::read_sf(dsn = "raw_data/spatial", layer = "coastline")
+```
+
+```{r}
+coastline <- ne_coastline(returnclass = "sf", scale = "large")
+```
+
+```{r}
+continents <- ne_countries(returnclass = "sf", scale = "large")
+```
+
+```{r}
+spp = c("Callinectes_sapidus", "Lysmata_sp", "Mysidium_spp", "Gonodactylus_smithii")
+
+lionfish <- read.csv("data/Updated_RMP_Lionfish.csv") %>% 
+  mutate(type = ifelse(genus_species %in% spp, "Crustacean", "Fish"),
+         genus_species = str_replace(string = genus_species, pattern = "_", replacement = " "))
+```
+
+##Large Region Map Plot
+
+```{r}
+large_region_map <- ggplot(data = continents) +
+  geom_sf(fill = "gray", color = "black", size = .1) +
+  scale_x_continuous(limits = c(-100, -72.5)) +
+  scale_y_continuous(limits = c(10, 30)) +
+  geom_point(x = -88.5, y = 19, shape = 22, size = 40, color = "red")
+
+large_region_map
+```
+
+##Small Region Map Plot
+
+```{r}
+small_region_map <- ggplot(data = continents) +
+  geom_sf(fill = "gray", color = "black", size = .2) +
+  scale_x_continuous(limits = c(-92.5, -86)) +
+  scale_y_continuous(limits = c(16, 22)) +
+  geom_point(x = -87.2, y = 20.4, shape = 22, size = 6, color = "red")
+
+small_region_map
+```
+
+##Location Map Plot
+
+```{r}
+map_location_data <- lionfish %>% 
+  select(longitude, latitude, location) %>% 
+  distinct()
+
+location_map <- ggplot(data = coast) +
+  geom_sf(fill = "gray", color = "black", size = .2) +
+  scale_x_continuous(limits = c(-92.5, -85)) +
+  scale_y_continuous(limits = c(16, 22.5)) +
+  lims(x = c(-87.32, -87.1), y = c(20.35, 20.54)) +
+  geom_point(data = map_location_data, mapping = aes(x = longitude, y = latitude, color = location), size = 1) +
+  labs(x = "", y = "") +
+  theme(legend.position = c(.66, .53)) +
+  scale_color_discrete(name = "Location")
+
+location_map
+```
+
+```{r}
+ggsave()
+```
+
+##Together with Cowplot
+
+```{r, fig.width = 7, fig.height = 14}
+methods_map_plot <- plot_grid(large_region_map, small_region_map,location_map, ncol = 1, align = "hv")
+
+methods_map_plot
+```
+
+```{r}
+ggsave(methods_map_plot, filename = "Figure_1.png", device = "png", width = 7, height = 14)
+```
+
+```{r}
+map_location_data <- lionfish %>% 
+  select(longitude, latitude, location) %>% 
+  distinct()
+
+methods_pres_plot <- ggplot(data = coast) +
+  geom_sf(fill = "gray", color = "black", size = .2) +
+  scale_x_continuous(limits = c(-92.5, -85)) +
+  scale_y_continuous(limits = c(16, 22.5)) +
+  lims(x = c(-87.32, -87.1), y = c(20.35, 20.54)) +
+  geom_point(data = map_location_data, mapping = aes(x = longitude, y = latitude, color = location), size = 2.5) +
+  labs(x = "Latitude", y = "Longitude") +
+  theme(legend.position = c(.66, .53)) +
+  scale_color_discrete(name = "Location") +
+  ggtitle("Map of Study Area")
+
+methods_pres_plot
+```
+
+```{r}
+ggsave(methods_pres_plot, filename = "Presentation_Methods_Map.png", device = "png", width = 8, height = 8)
+```
+
+```{r, fig.width= 14, fig.height= 7}
+plot_grid(large_region_map, small_region_map,location_map, ncol = 3, align = "hv")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

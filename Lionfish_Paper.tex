@@ -1,0 +1,173 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={LionfishDiet},
+            pdfauthor={Alex Reulbach},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{LionfishDiet}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Alex Reulbach}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{7/17/2018}
+
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Lionfish (Pterois volitans and Pterois miles) are an invasive species in
+the Western Atlantic that are causing harm to the region's coral reefs.
+Previous studies have examined invasive lionfish feeding ecology in
+large regions and suggested further studies identifying regional
+variations and calling for more basic research regarding lionfish diet.
+With limited resources, it is important to account for the spatial scale
+at which variation in lionfish diet is reduced. In this study, 109
+lionfish stomachs were collected from 10 sites in a localized region of
+the Mexican Caribbean and were analyzed to evaluate the differences in
+feeding ecology between sites. It was hypothesized that there would be
+no noticeable differences between the feeding ecology of the lionfish in
+the different sites across this region. Preliminary examination of the
+data collected shows that no major differences between the feeding
+ecology of the lionfish collected from the 10 different sites exist.
+This finding is important for future effective management of invasive
+lionfish populations across the Western Atlantic region. Since lionfish
+feeding ecology does not change across different sites in a localized
+region, studying lionfish at only one site in a certain region would be
+effective for understanding lionfish feeding ecology across the entire
+region, thus saving money which could be allocated for managing invasive
+lionfish populations.
+\end{abstract}
+
+\section{Intro}\label{intro}
+
+The invasion of lionfish (Pterois volitans and Pterois miles) into the
+Western Atlantic represents a major threat to the coral reef ecosystems
+in the region. Introduced in the early 1990's, the range of lionfish in
+this region quickly spread up the East Coast, the Gulf of Mexico, and
+throughout the Caribbean Sea (Betancur-R et al., 2011; Schofield, 2010).
+The unique hunting strategy and appearance of lionfish account for their
+success in establishing populations across the region (Grieve et al.,
+2016). The high predation efficiency of the lionfish, due to the naivety
+of native fish, has the potential to have large, negative ecological
+effects on coral reefs fish and invertebrate species. Lionfish are
+opportunistic generalist carnivores that consume a wide range of
+invertebrate and vertebrate species. The majority of the prey species
+consumed by invasive lionfish are not at risk or managed by the
+fisheries (Peake et al., 2018). Since lionfish are opportunistic
+generalist carnivores, they consume whatever prey species is most
+abundant in a certain region. While the less abundant at risk species
+are not being targeted by lionfish, this opportunistic hunting behavior
+is still a cause for concern. In coral reefs with established lionfish
+populations, the lionfish have caused significant reductions in the
+recruitment of coral reef species (Albins and Hixon, 2008). For this
+reason, understanding the composition of lionfish diet is crucial in
+determining their effect on coral reef ecosystems. Invasive lionfish
+feeding ecology and behavior has been examined before in numerous
+location-based studies. These studies highlighted the many differences
+in lionfish diet composition at different regions in the Western
+Atlantic (Morris and Atkins, 2009; Eddy et al., 2016; Dahl and
+Patterson, 2014). To discern if lionfish diet does vary based on
+location, a large study examining the contents of 8125 lionfish stomachs
+was conducted across 10 different locations in the Western Atlantic. The
+study revealed that lionfish diet does vary considerably based on
+location, and highlight the need for increased research to further
+understand possible impacts of lionfish (Peake et al., 2018). While
+lionfish diet varies considerably across large regions, it is unknown at
+what spatial scale the variation in lionfish diet is reduced. Here, we
+used stomach contents of 109 lionfish collected from 10 different sites
+in a localized region of the Mexican Caribbean to examine the variation
+in lionfish diet between sites and have a better understanding of
+lionfish feeding ecology in this region. Based on previous
+location-based studies that have examined lionfish feeding ecology in
+other localized regions, we hypothesized that there would be very little
+variation in lionfish diet and feeding ecology at the different sites.
+The data collected from this study will be very important in
+successfully managing invasive lionfish populations.
+
+\section{Methods}\label{methods}
+
+code that loads coastline code that creates map map
+
+\section{Results}\label{results}
+
+\section{Discussion}\label{discussion}
+
+\section{References}\label{references}
+
+\section{Acknowledgments}\label{acknowledgments}
+
+
+\end{document}
